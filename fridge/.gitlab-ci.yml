@@ -1,0 +1,51 @@
+image: gradle:6.7-jdk11
+
+stages:
+  - build
+  - staticAnalysis
+  - test
+
+variables:
+  # Disable the Gradle daemon to ensure isolated runs of the CI pipeline.
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  SPRING_PROFILES_ACTIVE: ci
+
+fridge-build:
+  stage: build
+  script:
+    gradle --build-cache :fridge:assemble
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build/
+      - .gradle/
+
+fridge-checkStyle:
+  stage: staticAnalysis
+  script:
+    gradle :fridge:checkstyleMain :fridge:checkStyleTest
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - build/
+      - .gradle/
+  allow_failure: true
+
+fridge-PMD:
+  stage: staticAnalysis
+  script:
+    gradle :fridge:pmdMain :fridge:pmdTest
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - build/
+      - .gradle/
+  allow_failure: true
+
+fridge-test:
+  stage: test
+  script:
+    gradle :fridge:test

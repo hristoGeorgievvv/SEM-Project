@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FridgeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fridge</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.fridge.controller</a> &gt; <span class="el_source">FridgeController.java</span></div><h1>FridgeController.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.fridge.controller;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.List;
+import nl.tudelft.sem.sem54.fridge.controller.pojo.ProductEntryRequest;
+import nl.tudelft.sem.sem54.fridge.controller.pojo.TakeoutRequest;
+import nl.tudelft.sem.sem54.fridge.controller.pojo.TakeoutRequestResult;
+import nl.tudelft.sem.sem54.fridge.controller.pojo.TakeoutRequestStatus;
+import nl.tudelft.sem.sem54.fridge.domain.Fridge;
+import nl.tudelft.sem.sem54.fridge.domain.Product;
+import nl.tudelft.sem.sem54.fridge.domain.ProductTransaction;
+import nl.tudelft.sem.sem54.fridge.domain.User;
+import nl.tudelft.sem.sem54.fridge.exceptions.CannotEditException;
+import nl.tudelft.sem.sem54.fridge.exceptions.IncompleteRequestException;
+import nl.tudelft.sem.sem54.fridge.exceptions.ProductExistsException;
+import nl.tudelft.sem.sem54.fridge.exceptions.ProductNotFoundException;
+import nl.tudelft.sem.sem54.fridge.redis.ProductStatusPublisher;
+import nl.tudelft.sem.sem54.fridge.service.LoggedInUserService;
+import nl.tudelft.sem.sem54.fridge.service.base.FridgeService;
+import nl.tudelft.sem.sem54.fridge.service.base.ProductService;
+import nl.tudelft.sem.sem54.fridge.service.base.ProductTransactionService;
+import nl.tudelft.sem.sem54.fridge.service.base.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+@RestController
+@RequestMapping(&quot;fridge&quot;)
+public class FridgeController {
+<span class="fc" id="L37">    private final transient String productsEndpoint = &quot;products&quot;;</span>
+    private final UserService userService;
+    private final LoggedInUserService loggedInUserService;
+    private final FridgeService fridgeService;
+    private final ProductService productService;
+    private final ProductTransactionService productTransactionService;
+    private final ProductStatusPublisher productStatusPublisher;
+
+    /**
+     * Autowire dependencies.
+     *
+     * @param userService               user service
+     * @param fridgeService             fridge service
+     * @param productService            product service
+     * @param productTransactionService product transaction service
+     * @param productStatusPublisher    product status publisher
+     */
+    public FridgeController(
+            UserService userService,
+            FridgeService fridgeService,
+            ProductService productService,
+            ProductTransactionService productTransactionService,
+<span class="fc" id="L59">            ProductStatusPublisher productStatusPublisher, LoggedInUserService loggedInUserService) {</span>
+<span class="fc" id="L60">        this.userService = userService;</span>
+<span class="fc" id="L61">        this.fridgeService = fridgeService;</span>
+<span class="fc" id="L62">        this.productService = productService;</span>
+<span class="fc" id="L63">        this.productTransactionService = productTransactionService;</span>
+<span class="fc" id="L64">        this.productStatusPublisher = productStatusPublisher;</span>
+<span class="fc" id="L65">        this.loggedInUserService = loggedInUserService;</span>
+<span class="fc" id="L66">    }</span>
+
+    /**
+     * Attempts to fulfill a takeoutRequest from the fridge.
+     *
+     * @param takeoutRequest the request to attempt
+     */
+    @PostMapping(&quot;take&quot;)
+    public TakeoutRequestResult takeProduct(@RequestBody TakeoutRequest takeoutRequest) {
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if(takeoutRequest.getUsername() == null</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">                || takeoutRequest.getUsername().isEmpty()</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">                || takeoutRequest.getAmount() &lt;= 0</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">                || takeoutRequest.getProductId() &lt;= 0) {</span>
+<span class="fc" id="L79">            throw new IncompleteRequestException(</span>
+                    &quot;The request must contain the following fields in the body: &quot; +
+                            &quot;username, &quot; +
+                            &quot;amount (&gt; 0), &quot; +
+                            &quot;productId (&gt; 0), &quot;);
+        }
+
+<span class="fc" id="L86">        User user = loggedInUserService.getUser();</span>
+
+<span class="fc" id="L88">        user = userService.findByUsername(takeoutRequest.getUsername());</span>
+
+        // User has no permission to access fridge
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (!user.getFridge().equals(fridgeService.getDefaultFridge())) {</span>
+<span class="fc" id="L92">            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);</span>
+        }
+
+
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        if(!productService.checkIfProductExists(takeoutRequest.getProductId())) {</span>
+<span class="fc" id="L97">            throw new ProductNotFoundException(takeoutRequest.getProductId());</span>
+        }
+
+<span class="fc" id="L100">        Product product = productService.findById(takeoutRequest.getProductId());</span>
+
+<span class="fc" id="L102">        int newPortionsLeft = product.getPortionsLeft() - takeoutRequest.getAmount();</span>
+
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if (newPortionsLeft &lt; 0) {</span>
+            // Cannot process request due to insufficient product
+
+<span class="fc" id="L107">            return new TakeoutRequestResult(product,</span>
+                    TakeoutRequestStatus.INSUFFICIENT,
+                    takeoutRequest,
+                    0);
+
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        } else if (newPortionsLeft == 0) {</span>
+            // Can process request but product finishes -&gt; warn main service
+<span class="fc" id="L114">            product.setPortionsLeft(0);</span>
+
+<span class="fc" id="L116">            ProductTransaction productTransaction = new ProductTransaction(</span>
+<span class="fc" id="L117">                    Timestamp.valueOf(LocalDateTime.now()), user, product, product.getCreditValue(),</span>
+<span class="fc" id="L118">                    takeoutRequest.getAmount(), false);</span>
+
+<span class="fc" id="L120">            productTransactionService.save(productTransaction);</span>
+
+<span class="fc" id="L122">            productService.save(product);</span>
+
+<span class="fc" id="L124">            productStatusPublisher.publishDepletion(product);</span>
+
+<span class="fc" id="L126">            productService.delete(product);</span>
+
+<span class="fc" id="L128">            return new TakeoutRequestResult(product,</span>
+                    TakeoutRequestStatus.FINISHED,
+                    takeoutRequest,
+<span class="fc" id="L131">                    -takeoutRequest.getAmount());</span>
+        } else {
+            // Can process request normally
+<span class="fc" id="L134">            product.setPortionsLeft(newPortionsLeft);</span>
+<span class="fc" id="L135">            ProductTransaction productTransaction = new ProductTransaction(</span>
+<span class="fc" id="L136">                    Timestamp.valueOf(LocalDateTime.now()), user, product, product.getCreditValue(),</span>
+<span class="fc" id="L137">                    takeoutRequest.getAmount(), false);</span>
+<span class="fc" id="L138">            productTransactionService.save(productTransaction);</span>
+<span class="fc" id="L139">            productService.save(product);</span>
+
+<span class="fc" id="L141">            return new TakeoutRequestResult(product,</span>
+                    TakeoutRequestStatus.SUFFICIENT,
+                    takeoutRequest,
+<span class="fc" id="L144">                    -takeoutRequest.getAmount());</span>
+
+        }
+    }
+
+    /**
+     * Attempts to fulfill a product removal request by a user.
+     * User and removed product must be in the fridge.
+     * User must be the owner of the product.
+     *
+     * @param productId the id of the product.
+     */
+    @DeleteMapping(productsEndpoint)
+    public void removeProduct(@RequestBody long productId) {
+<span class="fc bfc" id="L158" title="All 2 branches covered.">        if(productId &lt;= 0) {</span>
+<span class="fc" id="L159">            throw new IncompleteRequestException(&quot;Please specify a productId &gt; 0!&quot;);</span>
+        }
+
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        if(!productService.checkIfProductExists(productId)) {</span>
+<span class="fc" id="L163">            throw new ProductNotFoundException(productId);</span>
+        }
+
+<span class="fc" id="L166">        Product product = productService.findById(productId);</span>
+<span class="fc" id="L167">        User user = loggedInUserService.getUser();</span>
+
+<span class="fc bfc" id="L169" title="All 2 branches covered.">        if (user != product.getOwner()) {</span>
+<span class="fc" id="L170">            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);</span>
+        }
+
+<span class="fc" id="L173">        productStatusPublisher.publishRemoval(product);</span>
+
+<span class="fc" id="L175">        productService.delete(product);</span>
+<span class="fc" id="L176">    }</span>
+
+    /**
+     * Attempts to fulfill a product edit request by a user.
+     * The product to edit must be in the fridge.
+     * The user must be the owner of the product.
+     * The product must be in full (no portions taken).
+     *
+     * @param productEntryRequest a request containing the edited product.
+     */
+    @PatchMapping(productsEndpoint)
+    public Product editProduct(@RequestBody ProductEntryRequest productEntryRequest) {
+<span class="fc bfc" id="L188" title="All 2 branches covered.">        if(productEntryRequest.getProductName() == null ||</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">                productEntryRequest.getProductName().isEmpty() ||</span>
+<span class="fc bfc" id="L190" title="All 2 branches covered.">                productEntryRequest.getCreditValue() &lt;= 0 ||</span>
+<span class="fc bfc" id="L191" title="All 2 branches covered.">                productEntryRequest.getPortions() &lt;= 0 ||</span>
+<span class="fc bfc" id="L192" title="All 2 branches covered.">                productEntryRequest.getExpirationDate() == null) {</span>
+<span class="fc" id="L193">            throw new IncompleteRequestException(</span>
+                    &quot;The request must contain the following fields in the body: &quot; +
+                            &quot;productName, &quot; +
+                            &quot;portions (&gt; 0), &quot; +
+                            &quot;creditValue (&gt; 0), &quot; +
+                            &quot;expirationDate (YYYY-MM-DD)!&quot;);
+
+        }
+
+<span class="fc" id="L202">        User user = loggedInUserService.getUser();</span>
+<span class="fc" id="L203">        String productName = productEntryRequest.getProductName();</span>
+
+<span class="fc bfc" id="L205" title="All 2 branches covered.">        if (!productService.checkIfProductExists(productName)) {</span>
+<span class="fc" id="L206">            throw new ProductNotFoundException(productName);</span>
+        }
+
+<span class="fc" id="L209">        Product product = productService.findByProductName(productName);</span>
+
+<span class="fc bfc" id="L211" title="All 2 branches covered.">        if (user != product.getOwner()) {</span>
+<span class="fc" id="L212">            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);</span>
+        }
+
+<span class="fc bfc" id="L215" title="All 2 branches covered.">        if (product.getPortionsLeft() != product.getPortions()) {</span>
+<span class="fc" id="L216">            throw new CannotEditException(product.getId());</span>
+        }
+        // once we are sure that the requester owns the product
+        // and nobody has taken a portion, we can fulfill the request
+<span class="fc" id="L220">        Product editedProduct = new Product(productName, user,</span>
+<span class="fc" id="L221">                productEntryRequest.getPortions(),</span>
+<span class="fc" id="L222">                productEntryRequest.getCreditValue(),</span>
+<span class="fc" id="L223">                productEntryRequest.getExpirationDate(),</span>
+<span class="fc" id="L224">                fridgeService.getDefaultFridge());</span>
+
+<span class="fc" id="L226">        editedProduct.setId(product.getId());</span>
+
+<span class="fc" id="L228">        return productService.update(editedProduct);</span>
+    }
+
+
+    /**
+     * Returns a list of all products.
+     */
+    @GetMapping(productsEndpoint)
+    public List&lt;Product&gt; getProducts() {
+<span class="nc" id="L237">        Fridge fridge = fridgeService.getDefaultFridge();</span>
+<span class="nc" id="L238">        return fridge.getAvailableProducts();</span>
+    }
+
+    /**
+     * Attempts to undo the last transaction of a user.
+     *
+     * @param productId the Id of the product
+     */
+    @PostMapping(&quot;undo&quot;)
+    public TakeoutRequestResult undoLastTransaction(@RequestBody long productId) {
+<span class="fc bfc" id="L248" title="All 2 branches covered.">        if(productId &lt;= 0) {</span>
+<span class="fc" id="L249">            throw new IncompleteRequestException(&quot;Please specify a productId &gt; 0!&quot;);</span>
+        }
+
+<span class="fc bfc" id="L252" title="All 2 branches covered.">        if(!productService.checkIfProductExists(productId)) {</span>
+<span class="fc" id="L253">            throw new ProductNotFoundException(productId);</span>
+        }
+
+<span class="fc" id="L256">        Product product = productService.findById(productId);</span>
+
+<span class="fc" id="L258">        User user = loggedInUserService.getUser();</span>
+
+<span class="fc" id="L260">        ProductTransaction productTransaction =</span>
+<span class="fc" id="L261">                productTransactionService.getLastValidTransaction(productId, user.getId());</span>
+
+<span class="fc" id="L263">        int portionsUndo = productTransaction.getPortions();</span>
+
+<span class="fc" id="L265">        product.setPortionsLeft(product.getPortionsLeft() + portionsUndo);</span>
+
+<span class="fc" id="L267">        productService.save(product);</span>
+
+<span class="fc" id="L269">        ProductTransaction productTransactionUndo =</span>
+<span class="fc" id="L270">                new ProductTransaction(Timestamp.valueOf(LocalDateTime.now()),</span>
+                        user, product,
+<span class="fc" id="L272">                        productTransaction.getCredits(), portionsUndo * (-1), true, productTransaction);</span>
+
+<span class="fc" id="L274">        productTransaction.setRevert(true);</span>
+
+<span class="fc" id="L276">        productTransactionService.save(productTransaction);</span>
+<span class="fc" id="L277">        productTransactionService.save(productTransactionUndo);</span>
+
+<span class="fc" id="L279">        return new TakeoutRequestResult(product,</span>
+                TakeoutRequestStatus.SUFFICIENT, 0, portionsUndo);
+
+    }
+
+    /**
+     * Attempts to add a product.
+     *
+     * @param productEntryRequest the request to attempt
+     */
+
+    @PostMapping(productsEndpoint)
+    public Product addProduct(@RequestBody ProductEntryRequest productEntryRequest) {
+<span class="fc" id="L292">        User user = loggedInUserService.getUser();</span>
+
+<span class="fc bfc" id="L294" title="All 2 branches covered.">        if (productService.checkIfProductExists(productEntryRequest.getProductName())) {</span>
+<span class="fc" id="L295">            throw new ProductExistsException(productEntryRequest.getProductName());</span>
+        }
+
+<span class="fc bfc" id="L298" title="All 2 branches covered.">        if(productEntryRequest.getProductName() == null ||</span>
+<span class="fc bfc" id="L299" title="All 2 branches covered.">                productEntryRequest.getProductName().isEmpty() ||</span>
+<span class="fc bfc" id="L300" title="All 2 branches covered.">                productEntryRequest.getCreditValue() &lt;= 0 ||</span>
+<span class="fc bfc" id="L301" title="All 2 branches covered.">                productEntryRequest.getPortions() &lt;= 0 ||</span>
+<span class="fc bfc" id="L302" title="All 2 branches covered.">                productEntryRequest.getExpirationDate() == null) {</span>
+<span class="fc" id="L303">            throw new IncompleteRequestException(</span>
+                    &quot;The request must contain the following fields in the body: &quot; +
+                            &quot;productName, &quot; +
+                            &quot;portions (&gt; 0), &quot; +
+                            &quot;creditValue (&gt; 0), &quot; +
+                            &quot;expirationDate (YYYY-MM-DD)!&quot;);
+
+        }
+
+<span class="fc" id="L312">        Fridge fridge = fridgeService.getDefaultFridge();</span>
+
+<span class="fc" id="L314">        Product product = new Product(productEntryRequest.getProductName(), user,</span>
+<span class="fc" id="L315">                productEntryRequest.getPortions(),</span>
+<span class="fc" id="L316">                productEntryRequest.getCreditValue(),</span>
+<span class="fc" id="L317">                productEntryRequest.getExpirationDate(),</span>
+                fridge);
+
+<span class="fc" id="L320">        return productService.save(product);</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

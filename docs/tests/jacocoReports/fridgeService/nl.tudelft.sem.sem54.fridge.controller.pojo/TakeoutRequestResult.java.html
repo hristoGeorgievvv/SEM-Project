@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TakeoutRequestResult.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fridge</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.fridge.controller.pojo</a> &gt; <span class="el_source">TakeoutRequestResult.java</span></div><h1>TakeoutRequestResult.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.fridge.controller.pojo;
+
+import nl.tudelft.sem.sem54.fridge.domain.Product;
+
+public class TakeoutRequestResult {
+    /**
+     * Indicates product status after operation.
+     */
+    private TakeoutRequestStatus takeoutRequestStatus;
+
+    /**
+     * Product key.
+     */
+    private long productId;
+
+    /**
+     * Portions requested in inbound request.
+     */
+    private int portionsRequested;
+
+    /**
+     * Portions left after request has been processed.
+     */
+    private int portionsLeft;
+
+    /**
+     * Product portion limit.
+     */
+    private int outOf;
+
+    /**
+     * Portion difference after request.
+     */
+    private int delta;
+
+    public TakeoutRequestStatus getProductStatus() {
+<span class="fc" id="L37">        return takeoutRequestStatus;</span>
+    }
+
+    public void setProductStatus(TakeoutRequestStatus takeoutRequestStatus) {
+<span class="fc" id="L41">        this.takeoutRequestStatus = takeoutRequestStatus;</span>
+<span class="fc" id="L42">    }</span>
+
+    public long getProductId() {
+<span class="fc" id="L45">        return productId;</span>
+    }
+
+    public void setProductId(long productId) {
+<span class="fc" id="L49">        this.productId = productId;</span>
+<span class="fc" id="L50">    }</span>
+
+    public int getPortionsRequested() {
+<span class="fc" id="L53">        return portionsRequested;</span>
+    }
+
+    public void setPortionsRequested(int portionsRequested) {
+<span class="fc" id="L57">        this.portionsRequested = portionsRequested;</span>
+<span class="fc" id="L58">    }</span>
+
+    public int getPortionsLeft() {
+<span class="fc" id="L61">        return portionsLeft;</span>
+    }
+
+    public void setPortionsLeft(int portionsLeft) {
+<span class="fc" id="L65">        this.portionsLeft = portionsLeft;</span>
+<span class="fc" id="L66">    }</span>
+
+    public int getOutOf() {
+<span class="fc" id="L69">        return outOf;</span>
+    }
+
+    public void setOutOf(int outOf) {
+<span class="fc" id="L73">        this.outOf = outOf;</span>
+<span class="fc" id="L74">    }</span>
+
+    public int getDelta() {
+<span class="fc" id="L77">        return delta;</span>
+    }
+
+    public void setDelta(int delta) {
+<span class="fc" id="L81">        this.delta = delta;</span>
+<span class="fc" id="L82">    }</span>
+
+    /**
+     * Long constructor of TakeOutRequestResult.
+     * Use builder pattern in the future!
+     *
+     * @param takeoutRequestStatus the status of the request.
+     * @param productId            the id of the taken product.
+     * @param portionsRequested    the number of portions the user wants to take.
+     * @param portionsLeft         the number of portions that are left.
+     * @param outOf                the limit of portions one can take.
+     * @param delta                the absolute change in portions after the request is fulfilled.
+     */
+    public TakeoutRequestResult(TakeoutRequestStatus takeoutRequestStatus, long productId,
+<span class="fc" id="L96">                                int portionsRequested, int portionsLeft, int outOf, int delta) {</span>
+<span class="fc" id="L97">        this.takeoutRequestStatus = takeoutRequestStatus;</span>
+<span class="fc" id="L98">        this.productId = productId;</span>
+<span class="fc" id="L99">        this.portionsRequested = portionsRequested;</span>
+<span class="fc" id="L100">        this.portionsLeft = portionsLeft;</span>
+<span class="fc" id="L101">        this.outOf = outOf;</span>
+<span class="fc" id="L102">        this.delta = delta;</span>
+<span class="fc" id="L103">    }</span>
+
+
+    /**
+     * Custom constructor for Takeout RequestResult.
+     * Intentionally bad to refractor and
+     * use builder pattern on future assignment.
+     *
+     * @param product              Product object
+     * @param takeoutRequestStatus status string
+     * @param takeoutRequest       TakeoutRequestObject
+     * @param delta                portion delta
+     */
+    public TakeoutRequestResult(Product product, TakeoutRequestStatus takeoutRequestStatus,
+<span class="fc" id="L117">                                TakeoutRequest takeoutRequest, int delta) {</span>
+<span class="fc" id="L118">        this.takeoutRequestStatus = takeoutRequestStatus;</span>
+<span class="fc" id="L119">        this.productId = product.getId();</span>
+<span class="fc" id="L120">        this.portionsRequested = takeoutRequest.getAmount();</span>
+<span class="fc" id="L121">        this.portionsLeft = product.getPortionsLeft();</span>
+<span class="fc" id="L122">        this.outOf = product.getPortions();</span>
+<span class="fc" id="L123">        this.delta = delta;</span>
+<span class="fc" id="L124">    }</span>
+
+    /**
+     * Custom constructor for Takeout RequestResult.
+     *
+     * @param product              Product object
+     * @param takeoutRequestStatus status string
+     * @param amount               the amount user takes
+     * @param delta                portion delta
+     */
+<span class="fc" id="L134">    public TakeoutRequestResult(Product product, TakeoutRequestStatus takeoutRequestStatus, int amount, int delta) {</span>
+<span class="fc" id="L135">        this.takeoutRequestStatus = takeoutRequestStatus;</span>
+<span class="fc" id="L136">        this.productId = product.getId();</span>
+<span class="fc" id="L137">        this.portionsRequested = amount;</span>
+<span class="fc" id="L138">        this.portionsLeft = product.getPortionsLeft();</span>
+<span class="fc" id="L139">        this.outOf = product.getPortions();</span>
+<span class="fc" id="L140">        this.delta = delta;</span>
+<span class="fc" id="L141">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

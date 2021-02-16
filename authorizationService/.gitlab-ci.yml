@@ -1,0 +1,50 @@
+image: gradle:6.7-jdk11
+
+stages:
+  - build
+  - staticAnalysis
+  - test
+
+variables:
+  # Disable the Gradle daemon to ensure isolated runs of the CI pipeline.
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+authorizationService-build:
+  stage: build
+  script:
+    gradle --build-cache :authorizationService:assemble
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build/
+      - .gradle/
+
+authorizationService-checkStyle:
+  stage: staticAnalysis
+  script:
+    gradle :authorizationService:checkstyleMain :authorizationService:checkStyleTest
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - build/
+      - .gradle/
+  allow_failure: true
+
+authorizationService-PMD:
+  stage: staticAnalysis
+  script:
+    gradle :authorizationService:pmdMain :authorizationService:pmdTest
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - build/
+      - .gradle/
+  allow_failure: true
+
+authorizationService-test:
+  stage: test
+  script:
+    gradle :authorizationService:test

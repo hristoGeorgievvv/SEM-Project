@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fridge.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fridge</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.fridge.domain</a> &gt; <span class="el_source">Fridge.java</span></div><h1>Fridge.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.fridge.domain;
+
+import nl.tudelft.sem.sem54.fridge.exceptions.ProductNotFoundException;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Fridge {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (this == o) {</span>
+<span class="fc" id="L24">            return true;</span>
+        }
+<span class="fc bfc" id="L26" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L27">            return false;</span>
+        }
+<span class="fc" id="L29">        Fridge fridge = (Fridge) o;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        return Objects.equals(users, fridge.users)</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                &amp;&amp; Objects.equals(products, fridge.products);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L36">        return Objects.hash(users, products);</span>
+    }
+
+    @OneToMany(mappedBy = &quot;fridge&quot;)
+    private List&lt;User&gt; users;
+
+    @OneToMany(mappedBy = &quot;fridge&quot;)
+    private List&lt;Product&gt; products;
+
+    public long getId() {
+<span class="fc" id="L46">        return id;</span>
+    }
+
+    public List&lt;User&gt; getUsers() {
+<span class="fc" id="L50">        return users;</span>
+    }
+
+    public void setUsers(List&lt;User&gt; users) {
+<span class="fc" id="L54">        this.users = users;</span>
+<span class="fc" id="L55">    }</span>
+
+    public List&lt;Product&gt; getProducts() {
+<span class="fc" id="L58">        return products;</span>
+    }
+
+    public void setProducts(List&lt;Product&gt; products) {
+<span class="fc" id="L62">        this.products = products;</span>
+<span class="fc" id="L63">    }</span>
+
+    /**
+     * Fridge constructor takes an id, list of users and list of products.
+     *
+     * @param users    list of `User` objects.
+     * @param products list of `Product` objects.
+     */
+<span class="fc" id="L71">    public Fridge(List&lt;User&gt; users, List&lt;Product&gt; products) {</span>
+<span class="fc" id="L72">        this.users = users;</span>
+<span class="fc" id="L73">        this.products = products;</span>
+<span class="fc" id="L74">    }</span>
+
+<span class="fc" id="L76">    public Fridge() {</span>
+
+<span class="fc" id="L78">    }</span>
+
+    public Product addProduct(Product product) {
+<span class="fc" id="L81">        products.add(product);</span>
+<span class="fc" id="L82">        return product;</span>
+    }
+
+    /**
+     * Removes a product by id.
+     *
+     * @param product the product to remove
+     * @return product.
+     * @throws ProductNotFoundException if the supplied product's
+     *                                  id is not in the fridge's product list.
+     */
+    public Product removeProduct(Product product) throws ProductNotFoundException {
+<span class="fc" id="L94">        Product productToRemove = products.stream().filter(</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">                p -&gt; p.getId() == product.getId()).findFirst()</span>
+<span class="fc" id="L96">                .orElseThrow(() -&gt; new ProductNotFoundException(</span>
+<span class="fc" id="L97">                        product.toString() + &quot; was not found in fridge!&quot;));</span>
+
+<span class="fc" id="L99">        products.remove(productToRemove);</span>
+<span class="fc" id="L100">        return product;</span>
+    }
+
+    /**
+     * Makes a list of products in the fridge that are expired.
+     *
+     * @return List of expired Products.
+     */
+    public List&lt;Product&gt; getExpiredProducts() {
+<span class="fc" id="L109">        return products.stream()</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">                .filter(p -&gt; !p.getExpirationDate().after(new Date(System.currentTimeMillis())))</span>
+<span class="fc" id="L111">                .collect(Collectors.toList());</span>
+    }
+
+    /**
+     * Makes a list of products in the fridge that are fully consumed.
+     *
+     * @return List of fully consumed Products.
+     */
+    public List&lt;Product&gt; getEatenProducts() {
+<span class="fc" id="L120">        return products.stream()</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">                .filter(p -&gt; p.getPortionsLeft() &lt;= 0)</span>
+<span class="fc" id="L122">                .collect(Collectors.toList());</span>
+    }
+
+    /**
+     * Makes a list of products in the fridge that are available to consume.
+     *
+     * @return List of available Products.
+     */
+    public List&lt;Product&gt; getAvailableProducts() {
+<span class="fc" id="L131">        return products.stream()</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">                .filter(p -&gt; p.getExpirationDate().after(new Date(System.currentTimeMillis()))</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">                        &amp;&amp; p.getPortionsLeft() &gt; 0)</span>
+<span class="fc" id="L134">                .collect(Collectors.toList());</span>
+    }
+
+    /**
+     * Validates a given transaction T for the fridge.
+     * T must refer to a product and user contained in the fridge.
+     * If T is not an undo transaction, declared portions must be &lt;= remaining portions.
+     * If T is an undo transaction, then it must undo a real transaction T' for the product
+     * and the portions for T and T' must cancel out,
+     * and T must happen before T'.
+     *
+     * @param productTransaction the transaction to validate.
+     * @return true if valid, false if invalid.
+     */
+    public boolean isTransactionValid(ProductTransaction productTransaction) {
+        // TODO: return messages based on violated rule?
+
+<span class="fc" id="L151">        Optional&lt;Product&gt; product = products.stream()</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">                .filter(p -&gt; p.getId() == productTransaction.getProduct().getId()).findFirst();</span>
+<span class="fc" id="L153">        Optional&lt;User&gt; user = users.stream()</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">                .filter(u -&gt; u.getId() == productTransaction.getUser().getId()).findFirst();</span>
+
+<span class="fc bfc" id="L156" title="All 4 branches covered.">        if (product.isPresent() &amp;&amp; user.isPresent()) {</span>
+            // referred product and referred user must exist in the fridge
+<span class="fc bfc" id="L158" title="All 2 branches covered.">            if (productTransaction.getIsRevert()) {</span>
+<span class="fc" id="L159">                Optional&lt;ProductTransaction&gt; undoneTransaction =</span>
+<span class="fc" id="L160">                        product.get().getTransactionList().stream()</span>
+<span class="fc" id="L161">                                .filter(t -&gt;</span>
+<span class="fc" id="L162">                                        t.getId() == productTransaction</span>
+<span class="fc" id="L163">                                                .getRevertedProductTransaction()</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">                                                .getId()).findFirst();</span>
+                // valid if the undo transaction refers to a real one with the opposite portions
+                // and the undo transaction happens after the original transaction
+<span class="fc bfc" id="L167" title="All 2 branches covered.">                return undoneTransaction.isPresent()</span>
+<span class="fc" id="L168">                        &amp;&amp; undoneTransaction.get().getPortions()</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">                        == -productTransaction.getPortions()</span>
+
+<span class="fc" id="L171">                        &amp;&amp; undoneTransaction.get().getTimestamp()</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">                        .before(productTransaction.getTimestamp());</span>
+
+            } else {
+<span class="fc" id="L175">                int transactionPortions = productTransaction.getPortions();</span>
+                // valid if you can actually take the amount of requested portions
+                // requested portions must be &gt; 0, otherwise the transaction should've been undo
+<span class="fc bfc" id="L178" title="All 2 branches covered.">                return (transactionPortions &gt; 0</span>
+<span class="fc" id="L179">                        &amp;&amp; productTransaction.getPortions()</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">                        &lt;= product.get().getPortionsLeft());</span>
+            }
+        }
+<span class="fc" id="L183">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

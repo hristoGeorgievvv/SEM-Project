@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ProductEntity.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package nl.tudelft.sem.sem54.mainservice.entities;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Objects;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Product class, keeping track of portions and credits.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class ProductEntity {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int credits;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private UserEntity owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructor, taking the amount of portions and credits of a product.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param portions The amount of portions</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param credits  The amount of credits</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param owner    The owner of the food item</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public ProductEntity(int portions, int credits, UserEntity owner) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portions = portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.credits = credits;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.owner = owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the amount of portions in a product.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The amount of portions in a product</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getPortions() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_33'>1</a>
+<span>
+1. getPortions : replaced int return with 0 for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getPortions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the amount of credits a product is worth.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The amount of credits the product is worth</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getCredits() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_42'>1</a>
+<span>
+1. getCredits : replaced int return with 0 for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getCredits &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return credits;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Set the amount of portions of the product.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param portions The new amount of portions</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setPortions(int portions) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portions = portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Set the amount of credits.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param credits The new amount of credits</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setCredits(int credits) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.credits = credits;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the user entity that owns the product.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The owner</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public UserEntity getOwner() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_69'>1</a>
+<span>
+1. getOwner : replaced return value with null for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getOwner &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Set the owner of the product.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param owner the owner</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setOwner(UserEntity owner) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.owner = owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the amount of credits per portion of a product.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The amount of credits per portion</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public float getCreditsPerPortion() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_87'>2</a>
+<span>
+1. getCreditsPerPortion : Replaced float division with multiplication &rarr; KILLED<br/>
+2. getCreditsPerPortion : replaced float return with 0.0f for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getCreditsPerPortion &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return (float) this.getCredits() / (float) this.getPortions();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_92'/>
+92
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_92'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (this == o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_93'>1</a>
+<span>
+1. equals : replaced boolean return with false for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_95'>2</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (o == null || getClass() != o.getClass()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_96'/>
+96
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_96'>1</a>
+<span>
+1. equals : replaced boolean return with true for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ProductEntity that = (ProductEntity) o;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_99'>3</a>
+<span>
+1. equals : replaced boolean return with true for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::equals &rarr; KILLED<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+3. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return portions == that.portions</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#38;&#38; credits == that.credits</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_101'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            &#38;&#38; Objects.equals(owner, that.owner);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int hashCode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_106'/>
+106
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_106'>1</a>
+<span>
+1. hashCode : replaced int return with 0 for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::hashCode &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Objects.hash(portions, credits, owner);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52eacb4b_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPortions<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetCreditsPerPortion()]</span></span> replaced int return with 0 for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getPortions &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCredits<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetCredits()]</span></span> replaced int return with 0 for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getCredits &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getOwner<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetOwner()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getOwner &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCreditsPerPortion<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetCreditsPerPortion()]</span></span> Replaced float division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getCreditsPerPortion<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetCreditsPerPortion()]</span></span> replaced float return with 0.0f for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::getCreditsPerPortion &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_92'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentClass()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_itself()]</span></span> replaced boolean return with false for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::equals &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_null()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentClass()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentClass()]</span></span> replaced boolean return with true for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::equals &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentCredits()]</span></span> replaced boolean return with true for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentPortions()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentCredits()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentOwner()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52eacb4b_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52eacb4b_106'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for nl/tudelft/sem/sem54/mainservice/entities/ProductEntity::hashCode &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>NULL_RETURN_VALUES</li>
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest]/[method:testProcessCreditsFinished_onlyOneOwner()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_verifyUsersSaved()] (8 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest]/[method:testProcessCreditsFinished_usedLessPortions()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetCredits()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_null()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest]/[method:testProcessCreditsFinished_divideAmongSomeUsers()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_onlyOwnerTook()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_itself()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_productIsFinished()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_someUsersTook()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentClass()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_allUsersTook()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_allUsersTookAndHadNonZeroCreditBalance()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetOwner()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest]/[method:testProcessCreditsFinished_usedMorePortions()] (5 ms)</li><li>nl.tudelft.sem.sem54.mainservice.redis.RedisAdapterTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.redis.RedisAdapterTest]/[method:testMakeProduct_success()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_verifySaveWhenSomeUsersTook()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest]/[method:testProcessCreditsFinished_divideAmongOneUser()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_noUsersTook()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testSetOwner()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetPortions()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.DatabaseConnectionTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.DatabaseConnectionTest]/[method:testConnection()] (19 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentPortions()] (3 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testSetPortions()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_nobodyTook()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest]/[method:testProcessCreditsFinished_successVerifyUsersAreSaved()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_someUsersTook()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentOwner()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_productFinished()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_oneUserTook()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_verifySaveWhenAllUsersTook()] (10 ms)</li><li>nl.tudelft.sem.sem54.mainservice.redis.RedisAdapterTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.redis.RedisAdapterTest]/[method:testpProcess_throwsProductFinishedException()] (10 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testGetCreditsPerPortion()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinishedTest]/[method:testProcessCreditsFinished_divideAmongAllUsers()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_allUsersTookAndHadNonzeroCreditBalance()] (7 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testSetCredits()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_userTakesMorePortions()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.redis.RedisAdapterTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.redis.RedisAdapterTest]/[method:testProcess_success()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_onlyOneUserTook()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.entities.ProductEntityTest]/[method:testEquals_differentCredits()] (2 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemovedTest]/[method:testProcessCreditsRemoved_allUsersTook()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_onlyOwnerTook()] (6 ms)</li><li>nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiledTest]/[method:testProcessCreditsSpoiled_tookMorePortions()] (7 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.1
+
+</body>
+</html>

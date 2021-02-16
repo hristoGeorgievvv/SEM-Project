@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TakeoutRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fridge</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.fridge.controller.pojo</a> &gt; <span class="el_source">TakeoutRequest.java</span></div><h1>TakeoutRequest.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.fridge.controller.pojo;
+
+public class TakeoutRequest {
+    private String username;
+    private long productId;
+    private int amount;
+
+    /**
+     * Constructor for testing purposes.
+     *
+     * @param productId productId
+     * @param amount    amount
+     */
+<span class="fc" id="L14">    public TakeoutRequest(long productId, int amount) {</span>
+<span class="fc" id="L15">        this.productId = productId;</span>
+<span class="fc" id="L16">        this.amount = amount;</span>
+<span class="fc" id="L17">    }</span>
+
+<span class="nc" id="L19">    public TakeoutRequest() {</span>
+<span class="nc" id="L20">    }</span>
+
+    /**
+     * Constructor for testing purposes.
+     *
+     * @param productId productId
+     * @param amount    amount
+     */
+<span class="fc" id="L28">    public TakeoutRequest(String username, long productId, int amount) {</span>
+<span class="fc" id="L29">        this.username = username;</span>
+<span class="fc" id="L30">        this.productId = productId;</span>
+<span class="fc" id="L31">        this.amount = amount;</span>
+<span class="fc" id="L32">    }</span>
+
+    public long getProductId() {
+<span class="fc" id="L35">        return productId;</span>
+    }
+
+    public void setProductId(long productId) {
+<span class="fc" id="L39">        this.productId = productId;</span>
+<span class="fc" id="L40">    }</span>
+
+    public int getAmount() {
+<span class="fc" id="L43">        return amount;</span>
+    }
+
+    public void setAmount(int amount) {
+<span class="fc" id="L47">        this.amount = amount;</span>
+<span class="fc" id="L48">    }</span>
+
+    public String getUsername() {
+<span class="fc" id="L51">        return username;</span>
+    }
+
+    public void setUsername(String username) {
+<span class="fc" id="L55">        this.username = username;</span>
+<span class="fc" id="L56">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

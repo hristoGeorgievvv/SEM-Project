@@ -1,0 +1,103 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		//Needed only for SNAPSHOT versions
+		//maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+	}
+	dependencies {
+		classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.5.2'
+	}
+}
+
+allprojects {
+	repositories {
+		mavenCentral()
+		mavenCentral()
+		mavenLocal()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url "https://repo.spring.io/release" }
+	}
+	group = 'nl.tudelft.sem.sem54'
+	version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+	apply plugin: 'java'
+	// Test coverage
+	apply plugin: 'jacoco'
+	// Code style
+	apply plugin: 'checkstyle'
+	// PMD
+	apply plugin: 'pmd'
+	apply plugin: 'application'
+	// PITest
+//	apply plugin: 'info.solidsoft.pitest:1.5.2'
+
+	sourceCompatibility = 11
+	targetCompatibility = 11
+
+	test {
+		useJUnitPlatform()
+		jacoco {
+			enabled = true
+			includes = ['nl.tudelft.sem.sem54.authorizationservice', 'nl.tudelft.sem.sem54.fridge', 'nl.tudelft.sem.sem54.mainservice']
+			excludes = ['nl.tudelft.sem.sem54.integration']// these require a running deployment
+		}
+	}
+
+	jacocoTestCoverageVerification() {
+		dependsOn test
+		violationRules {
+			rule {
+				enabled = true
+				element = 'CLASS'
+				includes = ['nl.tudelft.sem.sem54.*']
+
+				limit {
+					counter = 'BRANCH'
+					value = 'COVEREDRATIO'
+					minimum = 0.1
+				}
+			}
+		}
+	}
+
+	jacocoTestReport() {
+		afterEvaluate {
+			classDirectories.setFrom(files(classDirectories.files.collect {
+				fileTree(dir: it, exclude:
+						['**/config/*.class',
+						 '**/configurations/*.class'])
+			}))
+		}
+	}
+
+	checkstyle {
+		toolVersion "8.37"
+		configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+
+		ignoreFailures = false
+		maxErrors = 0
+		maxWarnings = 0
+	}
+
+	pmd {
+		incrementalAnalysis = true
+		ruleSetFiles = files("${rootDir}/config/pmd/excludeFilter.xml")
+		ruleSets = []
+	}
+
+
+	apply plugin: 'info.solidsoft.pitest'
+	pitest {
+		//adds dependency to org.pitest:pitest-junit5-plugin and sets "testPlugin" to "junit5"
+		junit5PluginVersion = '0.12'
+
+		targetClasses = ['nl.tudelft.sem.sem54.*']  //by default "${project.group}.*"
+		pitestVersion = '1.5.1' //not needed when a default PIT version should be used
+		threads = 4
+		outputFormats = ['XML', 'HTML']
+		timestampedReports = false
+	}
+}

@@ -1,0 +1,8 @@
+stages:
+  - build
+  - staticAnalysis
+  - test
+include:
+  - authorizationService/.gitlab-ci.yml
+  - mainService/.gitlab-ci.yml
+  - fridge/.gitlab-ci.yml

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductStatus.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mainService</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.mainservice.redis.schema</a> &gt; <span class="el_source">ProductStatus.java</span></div><h1>ProductStatus.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.mainservice.redis.schema;
+
+import java.util.Map;
+import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
+
+
+/**
+ * Object used for message-passing between main and fridge service.
+ * We aren't using a shared library so this code should be duplicated :)
+ */
+public class ProductStatus {
+    @SerializedName(&quot;message_type&quot;)
+    private MessageType messageType;
+    @SerializedName(&quot;owner_username&quot;)
+    private String ownerUsername;
+    @SerializedName(&quot;total_portions&quot;)
+    private int totalPortions;
+    @SerializedName(&quot;total_credit_value&quot;)
+    private int totalCreditValue;
+    @SerializedName(&quot;portions_per_user&quot;)
+    private Map&lt;String, Integer&gt; portionsPerUser;
+
+
+    /**
+     * Full constructor used for testing purposes.
+     * (Replace this with a builder pattern)
+     *
+     * @param messageType      message type
+     * @param ownerUsername    username of owner
+     * @param totalPortions    total portion cap of product
+     * @param totalCreditValue total credit weight of product
+     * @param portionsPerUser  map of portion distribution per user
+     */
+    public ProductStatus(MessageType messageType, String ownerUsername,
+                         int totalPortions, int totalCreditValue,
+<span class="fc" id="L37">                         Map&lt;String, Integer&gt; portionsPerUser) {</span>
+<span class="fc" id="L38">        this.messageType = messageType;</span>
+<span class="fc" id="L39">        this.ownerUsername = ownerUsername;</span>
+<span class="fc" id="L40">        this.totalPortions = totalPortions;</span>
+<span class="fc" id="L41">        this.totalCreditValue = totalCreditValue;</span>
+<span class="fc" id="L42">        this.portionsPerUser = portionsPerUser;</span>
+<span class="fc" id="L43">    }</span>
+
+
+<span class="fc" id="L46">    public ProductStatus() {</span>
+<span class="fc" id="L47">    }</span>
+
+    public MessageType getMessageType() {
+<span class="fc" id="L50">        return messageType;</span>
+    }
+
+    public void setMessageType(MessageType messageType) {
+<span class="fc" id="L54">        this.messageType = messageType;</span>
+<span class="fc" id="L55">    }</span>
+
+    public String getOwnerUsername() {
+<span class="fc" id="L58">        return ownerUsername;</span>
+    }
+
+    public void setOwnerUsername(String ownerUsername) {
+<span class="fc" id="L62">        this.ownerUsername = ownerUsername;</span>
+<span class="fc" id="L63">    }</span>
+
+    public int getTotalCreditValue() {
+<span class="fc" id="L66">        return totalCreditValue;</span>
+    }
+
+    public void setTotalCreditValue(int totalCreditValue) {
+<span class="fc" id="L70">        this.totalCreditValue = totalCreditValue;</span>
+<span class="fc" id="L71">    }</span>
+
+    public Map&lt;String, Integer&gt; getPortionsPerUser() {
+<span class="fc" id="L74">        return portionsPerUser;</span>
+    }
+
+    public void setPortionsPerUser(Map&lt;String, Integer&gt; portionsPerUser) {
+<span class="fc" id="L78">        this.portionsPerUser = portionsPerUser;</span>
+<span class="fc" id="L79">    }</span>
+
+    public int getTotalPortions() {
+<span class="fc" id="L82">        return totalPortions;</span>
+    }
+
+    public void setTotalPortions(int totalPortions) {
+<span class="fc" id="L86">        this.totalPortions = totalPortions;</span>
+<span class="fc" id="L87">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L91">        return &quot;ProductStatus{&quot;</span>
+            + &quot;messageType=&quot; + messageType
+            + &quot;, ownerUsername='&quot; + ownerUsername
+            + &quot;, totalPortions=&quot; + totalPortions
+            + &quot;, totalCreditValue=&quot; + totalCreditValue
+            + &quot;, portionsPerUser=&quot; + portionsPerUser
+            + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        if (this == o) {</span>
+<span class="fc" id="L103">            return true;</span>
+        }
+<span class="fc bfc" id="L105" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L106">            return false;</span>
+        }
+<span class="fc" id="L108">        ProductStatus that = (ProductStatus) o;</span>
+<span class="fc bfc" id="L109" title="All 6 branches covered.">        return totalPortions == that.totalPortions</span>
+            &amp;&amp; totalCreditValue == that.totalCreditValue
+            &amp;&amp; messageType == that.messageType
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            &amp;&amp; Objects.equals(ownerUsername, that.ownerUsername)</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">            &amp;&amp; Objects.equals(portionsPerUser, that.portionsPerUser);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L118">        return Objects.hash(messageType, ownerUsername,</span>
+<span class="nc" id="L119">            totalPortions, totalCreditValue, portionsPerUser);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

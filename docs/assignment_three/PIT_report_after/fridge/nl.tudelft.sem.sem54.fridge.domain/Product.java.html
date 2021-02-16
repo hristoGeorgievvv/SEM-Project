@@ -1,0 +1,4293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Product.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package nl.tudelft.sem.sem54.fridge.domain;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.Timestamp;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collection;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Date;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Objects;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.CascadeType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.Column;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.Entity;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.FetchType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.GeneratedValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.GenerationType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.Id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.JoinColumn;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.ManyToOne;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.persistence.OneToMany;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.fasterxml.jackson.annotation.JsonIgnore;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.hibernate.annotations.Cascade;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Entity</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Product {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Id</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @GeneratedValue(strategy = GenerationType.AUTO)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private long id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JsonIgnore</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @ManyToOne</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JoinColumn(nullable = false)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private User owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(nullable = false)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(nullable = false, name = &#34;product_name&#34;, unique = true, length = 191)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(nullable = false, name = &#34;portions_left&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int portionsLeft;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(nullable = false, name = &#34;credit_value&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(nullable = false, name = &#34;expiration_date&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Date expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JsonIgnore</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @ManyToOne</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JoinColumn(nullable = false)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Fridge fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @JsonIgnore</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @OneToMany(mappedBy = &#34;product&#34;, fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = &#34;transaction_list&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Collection&#60;ProductTransaction&#62; transactionList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Product() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructor for testing purposes.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param productName    product name</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param portions       portions</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param portionsLeft   portionsLeft</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param creditValue    credit value of product</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param expirationDate expirationDate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param fridge         fridge object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Product(String productName,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                   int portions, int portionsLeft, int creditValue,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                   Date expirationDate, Fridge fridge) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.productName = productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portions = portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portionsLeft = portionsLeft;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.creditValue = creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.expirationDate = expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.fridge = fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.transactionList = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructor for creating a new Product.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param productName    product name</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param owner          product owner</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param portions       portions</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param creditValue    credit value of product</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param expirationDate expirationDate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param fridge         fridge object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Product(String productName, User owner,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                   int portions, int creditValue,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                   Date expirationDate, Fridge fridge) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.productName = productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.owner = owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portions = portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portionsLeft = portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.creditValue = creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.expirationDate = expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.fridge = fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.transactionList = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getCreditValue() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_112'/>
+112
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_112'>1</a>
+<span>
+1. getCreditValue : replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getCreditValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setCreditValue(int creditValue) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.creditValue = creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public long getId() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_120'/>
+120
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_120'>1</a>
+<span>
+1. getId : replaced long return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setId(long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.id = id;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getPortions() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_128'/>
+128
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_128'>1</a>
+<span>
+1. getPortions : replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getPortions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_133'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (this == o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_134'/>
+134
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_134'>1</a>
+<span>
+1. equals : replaced boolean return with false for nl/tudelft/sem/sem54/fridge/domain/Product::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_136'/>
+136
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_136'>2</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (o == null || getClass() != o.getClass()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_137'/>
+137
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_137'>1</a>
+<span>
+1. equals : replaced boolean return with true for nl/tudelft/sem/sem54/fridge/domain/Product::equals &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Product product = (Product) o;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_140'>3</a>
+<span>
+1. equals : replaced boolean return with true for nl/tudelft/sem/sem54/fridge/domain/Product::equals &rarr; KILLED<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+3. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return portions == product.portions</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#38;&#38; portionsLeft == product.portionsLeft</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_142'/>
+142
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_142'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                &#38;&#38; Objects.equals(expirationDate, product.expirationDate)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_143'/>
+143
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_143'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                &#38;&#38; Objects.equals(fridge, product.fridge)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_144'/>
+144
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_144'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                &#38;&#38; Objects.equals(productName, product.productName);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int hashCode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_149'/>
+149
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_149'>1</a>
+<span>
+1. hashCode : replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::hashCode &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return Objects.hash(productName, portions, portionsLeft, expirationDate, fridge);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setPortions(int portions) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portions = portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getPortionsLeft() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_157'>1</a>
+<span>
+1. getPortionsLeft : replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getPortionsLeft &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return portionsLeft;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setPortionsLeft(int portionsLeft) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portionsLeft = portionsLeft;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Date getExpirationDate() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_165'>1</a>
+<span>
+1. getExpirationDate : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product::getExpirationDate &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setExpirationDate(Date expirationDate) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.expirationDate = expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Fridge getFridge() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_173'/>
+173
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_173'>1</a>
+<span>
+1. getFridge : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product::getFridge &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setFridge(Fridge fridge) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.fridge = fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Collection&#60;ProductTransaction&#62; getTransactionList() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_181'/>
+181
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_181'>1</a>
+<span>
+1. getTransactionList : replaced return value with Collections.emptyList for nl/tudelft/sem/sem54/fridge/domain/Product::getTransactionList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return transactionList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setTransactionList(List&#60;ProductTransaction&#62; transactionList) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.transactionList = transactionList;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public User getOwner() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_189'/>
+189
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_189'>1</a>
+<span>
+1. getOwner : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product::getOwner &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setOwner(User owner) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.owner = owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getProductName() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_197'/>
+197
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_197'>1</a>
+<span>
+1. getProductName : replaced return value with &#34;&#34; for nl/tudelft/sem/sem54/fridge/domain/Product::getProductName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_200'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setProductName(String productName) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_201'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.productName = productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_202'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_203'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_204'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public static class Builder {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_205'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private User owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_206'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private int portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_207'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private int portionsLeft;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_208'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private int creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_209'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private String productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_210'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private Date expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_211'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private Fridge fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_212'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_213'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Builder setOwner(User owner) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_214'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.owner = owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_215'/>
+215
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_215'>1</a>
+<span>
+1. setOwner : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setOwner &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_216'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_217'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_218'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Builder setPortions(int portions) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_219'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.portions = portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_220'/>
+220
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_220'>1</a>
+<span>
+1. setPortions : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setPortions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_221'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_222'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_223'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Builder setPortionsLeft(int portionsLeft) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_224'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.portionsLeft = portionsLeft;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_225'/>
+225
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_225'>1</a>
+<span>
+1. setPortionsLeft : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setPortionsLeft &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_226'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_227'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_228'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Builder setCreditValue(int creditValue) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_229'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.creditValue = creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_230'/>
+230
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_230'>1</a>
+<span>
+1. setCreditValue : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setCreditValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_231'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_232'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_233'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Builder setProductName(String productName) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_234'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.productName = productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_235'/>
+235
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_235'>1</a>
+<span>
+1. setProductName : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setProductName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_236'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_237'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_238'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Builder setExpirationDate(Date expirationDate) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_239'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.expirationDate = expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_240'/>
+240
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_240'>1</a>
+<span>
+1. setExpirationDate : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setExpirationDate &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_241'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_242'/>
+242
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_242'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_243'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Builder setFridge(Fridge fridge) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_244'/>
+244
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_244'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.fridge = fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_245'/>
+245
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_245'>1</a>
+<span>
+1. setFridge : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setFridge &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_246'/>
+246
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_246'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_247'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_248'/>
+248
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_248'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public Product build() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_249'/>
+249
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_249'>1</a>
+<span>
+1. build : replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::build &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new Product(this);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_250'/>
+250
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_250'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_251'/>
+251
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_251'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_252'/>
+252
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_252'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_253'/>
+253
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_253'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private Product(Builder b) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_254'/>
+254
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_254'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.owner = b.owner;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_255'/>
+255
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_255'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portions = b.portions;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_256'/>
+256
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_256'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.productName = b.productName;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_257'/>
+257
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_257'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portionsLeft = b.portionsLeft;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_258'/>
+258
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_258'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.creditValue = b.creditValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_259'/>
+259
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_259'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.expirationDate = b.expirationDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_260'/>
+260
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_260'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.fridge = b.fridge;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_261'/>
+261
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_261'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61f39bb_262'/>
+262
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_262'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_112'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCreditValue<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetCreditValue()]</span></span> replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getCreditValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getId<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetId()]</span></span> replaced long return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_128'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPortions<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetPortions()]</span></span> replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getPortions &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testGetEatenProducts()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_134'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testAddProduct()]</span></span> replaced boolean return with false for nl/tudelft/sem/sem54/fridge/domain/Product::equals &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_136'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_137'>137</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_137'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for nl/tudelft/sem/sem54/fridge/domain/Product::equals &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testGetEatenProducts()]</span></span> replaced boolean return with true for nl/tudelft/sem/sem54/fridge/domain/Product::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_142'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_143'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_144'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_149'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::hashCode &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPortionsLeft<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetPortionsLeft()]</span></span> replaced int return with 0 for nl/tudelft/sem/sem54/fridge/domain/Product::getPortionsLeft &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExpirationDate<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetExpirationDate()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product::getExpirationDate &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_173'>173</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_173'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFridge<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetFridge()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product::getFridge &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_181'>181</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_181'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTransactionList<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetTransactionList()]</span></span> replaced return value with Collections.emptyList for nl/tudelft/sem/sem54/fridge/domain/Product::getTransactionList &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_189'>189</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_189'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getOwner<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetOwner()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product::getOwner &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_197'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getProductName<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetProductName()]</span></span> replaced return value with &#34;&#34; for nl/tudelft/sem/sem54/fridge/domain/Product::getProductName &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_215'>215</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_215'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setOwner<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setOwner &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_220'>220</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_220'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setPortions<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setPortions &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_225'>225</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_225'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setPortionsLeft<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setPortionsLeft &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_230'>230</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_230'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setCreditValue<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setCreditValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_235'>235</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_235'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setProductName<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setProductName &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_240'>240</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_240'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setExpirationDate<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setExpirationDate &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_245'>245</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_245'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setFridge<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::setFridge &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61f39bb_249'>249</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61f39bb_249'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()]</span></span> replaced return value with null for nl/tudelft/sem/sem54/fridge/domain/Product$Builder::build &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>NULL_RETURN_VALUES</li>
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_nullUsername()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_emptyUsername()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_wrongProduct()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_isSufficient()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testRemoveProduct_containedInFridge()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTransactionTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTransactionTest]/[method:testGetProduct()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testEditProduct_nullExpirationDate()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_undoesFutureTransaction()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_success()] (7 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_userDoesNotExist()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.jobs.ExpirationJobTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.jobs.ExpirationJobTest]/[method:testCheckExpirationDate_verifyMessageSentOnSpoiledProduct()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_tooFewPortionBoundary()] (8 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetProductName()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:contextLoads()] (8 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testUndoLastTransaction_success()] (8 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testRemoveProduct_success()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_isInsufficient()] (4 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_valid()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testGetExpiredProducts()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testEditProduct_nullProductName()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testRemoveProduct_zeroProductId()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_isFinished()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTransactionTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTransactionTest]/[method:testBuilder()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTransactionTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTransactionTest]/[method:testSetProduct()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_tooFewPortions()] (8 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetPortionsLeft()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testRemoveProduct_productDoesNotExist()] (4 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_verifyUserServiceCall()] (6 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_nullProducts()] (6 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetFridge()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testAddProduct_success()] (4 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetProductName()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetPortions()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testAddProduct_zeroCreditValue()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetTransactionList()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testAddProduct_nullProductName()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_negativePortions()] (6 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testAddProduct()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_zeroProducts()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetOwner()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:contextLoads()] (4 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testEditProduct_userIsNotOwner()] (4 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testAddProduct_nullExpirationDate()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.jobs.ExpirationJobTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.jobs.ExpirationJobTest]/[method:testExpirationCheck_MultipleProducts()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetExpirationDate()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetCreditValue()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_zeroProductId()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_undoesWrongTransaction()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_validUndo()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testGetEatenProducts()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_undoesWrongPortions()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testRemoveProduct_notOwner()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_nullUsers()] (7 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetCreditValue()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetId()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetId()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testEditProduct_zeroCreditValue()] (4 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_wrongUser()] (8 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testEditProduct_success()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_productDoesNotExist()] (6 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testEditProduct_zeroPortions()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_zeroAmount()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testAddProduct_alreadyExists()] (4 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_zeroUsers()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetExpirationDate()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetPortions()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_successPortionBoundary()] (7 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_productDoesNotExist()] (6 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testBuilder()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testAddProduct_zeroPortions()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testAddProduct_emptyProductName()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:test_take_product()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetPortionsLeft()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[nested-class:FridgeTransactionValidationTest]/[method:testIsTransactionValid_wrongPortions()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.ProductControllerTest]/[method:testEditProduct_emptyProductName()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testSetTransactionList()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.FridgeControllerTest]/[method:testProductRequest_differentFridge()] (5 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.ProductTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.ProductTest]/[method:testGetFridge()] (1 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testRemoveProduct_notContainedInFridge()] (2 ms)</li><li>nl.tudelft.sem.sem54.fridge.controller.MealControllerTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.controller.MealControllerTest]/[method:testProcessMeal_tooFewUsers()] (6 ms)</li><li>nl.tudelft.sem.sem54.fridge.domain.FridgeTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.domain.FridgeTest]/[method:testGetAvailableProducts()] (3 ms)</li><li>nl.tudelft.sem.sem54.fridge.jobs.ExpirationJobTest.[engine:junit-jupiter]/[class:nl.tudelft.sem.sem54.fridge.jobs.ExpirationJobTest]/[method:testCheckExpirationDate_verifyNoMessageSentOnFreshProduct()] (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.1
+
+</body>
+</html>

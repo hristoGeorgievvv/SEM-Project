@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProcessCreditsRemoved.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mainService</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.mainservice.service</a> &gt; <span class="el_source">ProcessCreditsRemoved.java</span></div><h1>ProcessCreditsRemoved.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.mainservice.service;
+
+import java.util.Map;
+import nl.tudelft.sem.sem54.mainservice.entities.ProductEntity;
+import nl.tudelft.sem.sem54.mainservice.entities.UserEntity;
+import nl.tudelft.sem.sem54.mainservice.exceptions.PortionsDoNotFitException;
+import nl.tudelft.sem.sem54.mainservice.service.base.ProcessCredits;
+import org.springframework.stereotype.Service;
+
+/**
+ * Process the credits for when a product is removed.
+ */
+@Service
+public class ProcessCreditsRemoved extends ProcessCredits {
+    private transient UserService userService;
+
+<span class="fc" id="L17">    public ProcessCreditsRemoved(UserService userService) {</span>
+<span class="fc" id="L18">        this.userService = userService;</span>
+<span class="fc" id="L19">    }</span>
+
+    /**
+     * Process the credits for when a product is removed.
+     * The owner gets the amount credits that the product is worth.
+     * Everyone who used it will lose credits for every portion that they used
+     * The remaining credits will be distributed over the people who used the product,
+     * this will be divided based on how much a person used of a product.
+     *
+     * @param product      the product to divide the credits from
+     * @param userPortions the map with the users and how much portions they each took
+     * @throws PortionsDoNotFitException the exception thrown when the amount of portions used
+     *                                   is larger then the amount of portions in a product
+     */
+    @Override
+    public void process(ProductEntity product, Map&lt;UserEntity, Integer&gt; userPortions)
+        throws PortionsDoNotFitException {
+
+<span class="fc" id="L37">        super.process(product, userPortions);</span>
+
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (userPortions.isEmpty()) {</span>
+<span class="fc" id="L40">            product.getOwner().addCredits(-product.getCredits());</span>
+<span class="fc" id="L41">            return;</span>
+        }
+
+<span class="fc" id="L44">        int usedPortions = userPortions.values().stream().reduce(0, Integer::sum);</span>
+
+<span class="fc" id="L46">        float leftOverCredits = (product.getPortions() - usedPortions)</span>
+<span class="fc" id="L47">            * product.getCreditsPerPortion();</span>
+
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        for (Map.Entry&lt;UserEntity, Integer&gt; entry : userPortions.entrySet()) {</span>
+<span class="fc" id="L50">            float diffCredits = (float) entry.getValue() / (float) usedPortions * leftOverCredits;</span>
+<span class="fc" id="L51">            entry.getKey().addCredits(-diffCredits);</span>
+<span class="fc" id="L52">        }</span>
+
+<span class="fc" id="L54">        userService.saveAll(userPortions.keySet());</span>
+<span class="fc" id="L55">        userService.save(product.getOwner());</span>
+<span class="fc" id="L56">    }</span>
+
+    /**
+     * Throw PortionsDoNotFitException when the amount of portions used,
+     * is more then the amount of portions in the product.
+     *
+     * @param product      the product to compare the portions with
+     * @param userPortions the map with the users and how much portions they each took
+     * @throws PortionsDoNotFitException the exception thrown
+     */
+    protected void fits(ProductEntity product, Map&lt;UserEntity, Integer&gt; userPortions)
+        throws PortionsDoNotFitException {
+<span class="fc" id="L68">        int usedPortions = userPortions.values().stream().reduce(0, Integer::sum);</span>
+
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (usedPortions &gt; product.getPortions()) {</span>
+<span class="fc" id="L71">            throw new PortionsDoNotFitException(&quot;More portions used then available&quot;);</span>
+        }
+<span class="fc" id="L73">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

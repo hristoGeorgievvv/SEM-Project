@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RedisAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mainService</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.mainservice.redis</a> &gt; <span class="el_source">RedisAdapter.java</span></div><h1>RedisAdapter.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.mainservice.redis;
+
+import com.google.gson.Gson;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import nl.tudelft.sem.sem54.mainservice.entities.ProductEntity;
+import nl.tudelft.sem.sem54.mainservice.entities.UserEntity;
+import nl.tudelft.sem.sem54.mainservice.exceptions.PortionsDoNotFitException;
+import nl.tudelft.sem.sem54.mainservice.redis.schema.ProductStatus;
+import nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsFinished;
+import nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsRemoved;
+import nl.tudelft.sem.sem54.mainservice.service.ProcessCreditsSpoiled;
+import nl.tudelft.sem.sem54.mainservice.service.UserService;
+import nl.tudelft.sem.sem54.mainservice.service.base.ProcessCredits;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RedisAdapter {
+    ProcessCreditsFinished processCreditsFinished;
+    ProcessCreditsSpoiled processCreditsSpoiled;
+    ProcessCreditsRemoved processCreditsRemoved;
+    UserService userService;
+    Gson gson;
+
+    /**
+     * Processes a redis message.
+     *
+     * @param processCreditsFinished a processor to use
+     * @param processCreditsSpoiled  a processor to use
+     * @param processCreditsRemoved  a processor to use
+     * @param userService            the user service to use
+     * @param gson                   the gson instance to use
+     */
+    public RedisAdapter(ProcessCreditsFinished processCreditsFinished,
+                        ProcessCreditsSpoiled processCreditsSpoiled,
+                        ProcessCreditsRemoved processCreditsRemoved,
+<span class="fc" id="L39">                        UserService userService, Gson gson) {</span>
+<span class="fc" id="L40">        this.processCreditsFinished = processCreditsFinished;</span>
+<span class="fc" id="L41">        this.processCreditsSpoiled = processCreditsSpoiled;</span>
+<span class="fc" id="L42">        this.processCreditsRemoved = processCreditsRemoved;</span>
+<span class="fc" id="L43">        this.userService = userService;</span>
+<span class="fc" id="L44">        this.gson = gson;</span>
+<span class="fc" id="L45">    }</span>
+
+    /**
+     * Read in the json string and map it to a ProductStatus object.
+     *
+     * @param json the input json
+     * @return the mapped ProductStatus object
+     */
+    protected ProductStatus jsonToProductStatus(String json) {
+<span class="fc" id="L54">        return gson.fromJson(json, ProductStatus.class);</span>
+    }
+
+    /**
+     * Get the right processor for the right message type.
+     *
+     * @param productStatus the productStatus object to get the message type from
+     * @return an instance of ProcessCredits, based on the message type
+     */
+    protected ProcessCredits getProcessor(ProductStatus productStatus) {
+        ProcessCredits result;
+<span class="pc bpc" id="L65" title="1 of 4 branches missed.">        switch (productStatus.getMessageType()) {</span>
+            case PRODUCT_FINISHED:
+<span class="fc" id="L67">                result = processCreditsFinished;</span>
+<span class="fc" id="L68">                break;</span>
+            case PRODUCT_SPOILED:
+<span class="fc" id="L70">                result = processCreditsSpoiled;</span>
+<span class="fc" id="L71">                break;</span>
+            case PRODUCT_REMOVED:
+<span class="fc" id="L73">                result = processCreditsRemoved;</span>
+<span class="fc" id="L74">                break;</span>
+            default:
+<span class="nc" id="L76">                throw new RuntimeException(&quot;Bad message type&quot;);</span>
+        }
+<span class="fc" id="L78">        return result;</span>
+    }
+
+    /**
+     * Make a productEntity of the productStatus.
+     *
+     * @param productStatus the productStatus to extract the productEntity out of
+     * @return the resulting ProductEntity
+     * @throws UsernameNotFoundException when the username of the owner of the product
+     *                                   is not found as a real user.
+     */
+    protected ProductEntity makeProduct(ProductStatus productStatus)
+        throws UsernameNotFoundException {
+
+<span class="fc" id="L92">        Optional&lt;UserEntity&gt; user = userService.findByUsername(productStatus.getOwnerUsername());</span>
+
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if (user.isEmpty()) {</span>
+<span class="fc" id="L95">            throw new UsernameNotFoundException(</span>
+<span class="fc" id="L96">                &quot;Product owner \&quot;&quot; + productStatus.getOwnerUsername() + &quot;\&quot; not found&quot;);</span>
+        }
+
+<span class="fc" id="L99">        return new ProductEntity(productStatus.getTotalPortions(),</span>
+<span class="fc" id="L100">            productStatus.getTotalCreditValue(), user.get());</span>
+    }
+
+    /**
+     * Transform the user portions map from a ProductStatus to a user portions
+     * map with real user entities.
+     *
+     * @param productStatus the productStatus to get the map from
+     * @return A Map with user entities and how many portions they took.
+     * @throws UsernameNotFoundException when one of the usernames is not found as a real user.
+     */
+    protected Map&lt;UserEntity, Integer&gt; makeUserPortionsMap(ProductStatus productStatus)
+        throws UsernameNotFoundException {
+
+<span class="fc" id="L114">        Map&lt;UserEntity, Integer&gt; result = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        for (Map.Entry&lt;String, Integer&gt; entry : productStatus.getPortionsPerUser().entrySet()) {</span>
+<span class="fc" id="L117">            Optional&lt;UserEntity&gt; user = userService.findByUsername(entry.getKey());</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">            if (user.isEmpty()) {</span>
+<span class="fc" id="L119">                throw new UsernameNotFoundException(</span>
+<span class="fc" id="L120">                    &quot;Product owner \&quot;&quot; + entry.getKey() + &quot;\&quot; not found&quot;);</span>
+            }
+<span class="fc" id="L122">            result.put(user.get(), entry.getValue());</span>
+<span class="fc" id="L123">        }</span>
+
+<span class="fc" id="L125">        return result;</span>
+    }
+
+    /**
+     * Process a redis message in json, to fully update all the credits.
+     *
+     * @param json the imput json message
+     */
+    public void process(String json) {
+<span class="fc" id="L134">        ProductStatus productStatus = jsonToProductStatus(json);</span>
+<span class="fc" id="L135">        ProcessCredits processor = getProcessor(productStatus);</span>
+<span class="fc" id="L136">        ProductEntity productEntity = makeProduct(productStatus);</span>
+<span class="fc" id="L137">        Map&lt;UserEntity, Integer&gt; userPortions = makeUserPortionsMap(productStatus);</span>
+
+        try {
+<span class="fc" id="L140">            processor.process(productEntity, userPortions);</span>
+<span class="fc" id="L141">        } catch (PortionsDoNotFitException e) {</span>
+<span class="fc" id="L142">            e.printStackTrace();</span>
+<span class="fc" id="L143">        }</span>
+<span class="fc" id="L144">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

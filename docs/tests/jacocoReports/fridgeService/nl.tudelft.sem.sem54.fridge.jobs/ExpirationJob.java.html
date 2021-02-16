@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExpirationJob.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fridge</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.fridge.jobs</a> &gt; <span class="el_source">ExpirationJob.java</span></div><h1>ExpirationJob.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.fridge.jobs;
+
+import java.util.Date;
+import java.util.List;
+import nl.tudelft.sem.sem54.fridge.domain.Product;
+import nl.tudelft.sem.sem54.fridge.redis.ProductStatusPublisher;
+import nl.tudelft.sem.sem54.fridge.service.base.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ExpirationJob {
+
+    private final ProductStatusPublisher productStatusPublisher;
+    private final ProductService productService;
+
+    /**
+     * Autowire dependencies.
+     *
+     * @param productStatusPublisher product status publisher
+     * @param productService         Product service
+     */
+    @Autowired
+<span class="fc" id="L25">    public ExpirationJob(ProductStatusPublisher productStatusPublisher, ProductService productService) {</span>
+<span class="fc" id="L26">        this.productStatusPublisher = productStatusPublisher;</span>
+<span class="fc" id="L27">        this.productService = productService;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * Checks product expirations on a 24hr schedule.
+     * If a product has expired it publishes an expiration event to Redis.
+     * Does not mutate fridge.
+     * Subscribers receiving the expiration event should decide how to handle it.
+     * (Strategy to split product costs, etc.)
+     */
+    @Scheduled(cron = &quot;0 0 */12 * * *&quot;)
+    public void checkExpirationDates() {
+<span class="fc" id="L39">        Date date = new Date();</span>
+<span class="fc" id="L40">        System.out.println(</span>
+<span class="fc" id="L41">                &quot;Starting expiration date check - &quot; + date.toString());</span>
+<span class="fc" id="L42">        List&lt;Product&gt; productList = productService.findAll();</span>
+
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Product product : productList) {</span>
+<span class="fc" id="L45">            System.out.println(&quot;Checking product: &quot; + product.getId());</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            if (product.getExpirationDate().before(date)) {</span>
+<span class="fc" id="L47">                System.out.println(</span>
+<span class="fc" id="L48">                        &quot;Found expired product: &quot; + product.getId());</span>
+
+<span class="fc" id="L50">                productStatusPublisher.publishExpiration(product);</span>
+            }
+<span class="fc" id="L52">        }</span>
+
+<span class="fc" id="L54">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

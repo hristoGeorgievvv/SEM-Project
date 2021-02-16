@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductTransaction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fridge</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.fridge.domain</a> &gt; <span class="el_source">ProductTransaction.java</span></div><h1>ProductTransaction.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.fridge.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import java.sql.Timestamp;
+
+@Table(name = &quot;ProductTransaction&quot;)
+@Entity
+public class ProductTransaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(nullable = false)
+    private Timestamp timestamp;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Product product;
+
+    @Column(nullable = false)
+    private int credits;
+
+    @Column(nullable = false)
+    private int portions;
+
+    @Column(nullable = false)
+    private boolean isRevert;
+
+    @OneToOne
+    @JoinColumn(nullable = true)
+    private ProductTransaction revertedProductTransaction;
+
+    /**
+     * Create a productTransaction (currently only used for testing).
+     */
+    public ProductTransaction(Timestamp timestamp, User user, Product product,
+                              int credits, int portions, boolean isRevert,
+<span class="fc" id="L50">                              ProductTransaction revertedProductTransaction) {</span>
+<span class="fc" id="L51">        this.timestamp = timestamp;</span>
+<span class="fc" id="L52">        this.user = user;</span>
+<span class="fc" id="L53">        this.product = product;</span>
+<span class="fc" id="L54">        this.credits = credits;</span>
+<span class="fc" id="L55">        this.portions = portions;</span>
+<span class="fc" id="L56">        this.isRevert = isRevert;</span>
+<span class="fc" id="L57">        this.revertedProductTransaction = revertedProductTransaction;</span>
+<span class="fc" id="L58">    }</span>
+
+    /**
+     * Create a productTransaction (currently only used for testing).
+     */
+    public ProductTransaction(Timestamp timestamp, User user, Product product,
+                              int credits, int portions, boolean isRevert
+<span class="fc" id="L65">    ) {</span>
+<span class="fc" id="L66">        this.timestamp = timestamp;</span>
+<span class="fc" id="L67">        this.user = user;</span>
+<span class="fc" id="L68">        this.product = product;</span>
+<span class="fc" id="L69">        this.credits = credits;</span>
+<span class="fc" id="L70">        this.portions = portions;</span>
+<span class="fc" id="L71">        this.isRevert = isRevert;</span>
+<span class="fc" id="L72">    }</span>
+
+    /**
+     * Constructor for testing.
+     *
+     * @param product  the product for the transaction
+     * @param portions the number of portions of the transaction
+     */
+<span class="fc" id="L80">    public ProductTransaction(Product product, int portions) {</span>
+<span class="fc" id="L81">        this.product = product;</span>
+<span class="fc" id="L82">        this.portions = portions;</span>
+<span class="fc" id="L83">    }</span>
+
+    /**
+     * Empty constructor for testing.
+     */
+<span class="fc" id="L88">    public ProductTransaction() {</span>
+<span class="fc" id="L89">    }</span>
+
+
+    public User getUser() {
+<span class="fc" id="L93">        return user;</span>
+    }
+
+    public void setUser(User user) {
+<span class="fc" id="L97">        this.user = user;</span>
+<span class="fc" id="L98">    }</span>
+
+    public Product getProduct() {
+<span class="fc" id="L101">        return product;</span>
+    }
+
+    public void setProduct(Product product) {
+<span class="fc" id="L105">        this.product = product;</span>
+<span class="fc" id="L106">    }</span>
+
+    public long getId() {
+<span class="fc" id="L109">        return id;</span>
+    }
+
+    public void setId(long id) {
+<span class="fc" id="L113">        this.id = id;</span>
+<span class="fc" id="L114">    }</span>
+
+    public Timestamp getTimestamp() {
+<span class="fc" id="L117">        return timestamp;</span>
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+<span class="fc" id="L121">        this.timestamp = timestamp;</span>
+<span class="fc" id="L122">    }</span>
+
+    public int getCredits() {
+<span class="fc" id="L125">        return credits;</span>
+    }
+
+    public void setCredits(int credits) {
+<span class="fc" id="L129">        this.credits = credits;</span>
+<span class="fc" id="L130">    }</span>
+
+    public int getPortions() {
+<span class="fc" id="L133">        return portions;</span>
+    }
+
+    public void setPortions(int portions) {
+<span class="fc" id="L137">        this.portions = portions;</span>
+<span class="fc" id="L138">    }</span>
+
+    public boolean getIsRevert() {
+<span class="fc" id="L141">        return isRevert;</span>
+    }
+
+    public void setRevert(boolean revert) {
+<span class="fc" id="L145">        isRevert = revert;</span>
+<span class="fc" id="L146">    }</span>
+
+
+    public ProductTransaction getRevertedProductTransaction() {
+<span class="fc" id="L150">        return revertedProductTransaction;</span>
+    }
+
+    public void setRevertedProductTransaction(ProductTransaction revertedProductTransaction) {
+<span class="fc" id="L154">        this.revertedProductTransaction = revertedProductTransaction;</span>
+<span class="fc" id="L155">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

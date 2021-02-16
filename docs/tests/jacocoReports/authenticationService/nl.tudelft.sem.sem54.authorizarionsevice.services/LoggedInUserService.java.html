@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoggedInUserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">authorizationService</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.authorizarionsevice.services</a> &gt; <span class="el_source">LoggedInUserService.java</span></div><h1>LoggedInUserService.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.authorizarionsevice.services;
+
+import java.util.Optional;
+import nl.tudelft.sem.sem54.authorizarionsevice.entities.UserEntity;
+import nl.tudelft.sem.sem54.authorizarionsevice.repositories.UserRepository;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
+@Service
+public class LoggedInUserService {
+
+    private final UserRepository userRepository;
+
+<span class="fc" id="L16">    public LoggedInUserService(UserRepository userRepository) {</span>
+<span class="fc" id="L17">        this.userRepository = userRepository;</span>
+<span class="fc" id="L18">    }</span>
+
+    /**
+     * Get the user entity of the current user if this user exists in
+     * the main service databse.
+     *
+     * @return optional of the user. empty if user not found.
+     */
+    public Optional&lt;UserEntity&gt; getUser() {
+<span class="fc" id="L27">        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (!(authentication instanceof AnonymousAuthenticationToken)) {</span>
+<span class="fc" id="L29">            return userRepository.findByUsername(authentication.getName());</span>
+        }
+<span class="fc" id="L31">        return Optional.empty();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,6 @@
+version: "3.3"
+
+services:
+  mariadb:
+    volumes:
+      - ./docker/provision/mysql/init/02-data.sql:/docker-entrypoint-initdb.d/02-data.sql

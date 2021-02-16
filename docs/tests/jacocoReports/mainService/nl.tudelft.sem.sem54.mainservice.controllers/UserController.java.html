@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mainService</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.mainservice.controllers</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.mainservice.controllers;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import java.net.http.HttpResponse;
+import java.util.Optional;
+import nl.tudelft.sem.sem54.mainservice.entities.UserEntity;
+import nl.tudelft.sem.sem54.mainservice.service.HttpCommunicationService;
+import nl.tudelft.sem.sem54.mainservice.service.LoggedInUserService;
+import nl.tudelft.sem.sem54.mainservice.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+/**
+ * The mainMicroservice user controller.
+ */
+@RestController
+@PropertySource(&quot;classpath:application.properties&quot;)
+@RequestMapping(&quot;main&quot;)
+public class UserController {
+
+    private final transient UserService userService;
+    private final transient HttpCommunicationService httpCommunicationService;
+    private final transient LoggedInUserService loggedInUserService;
+
+    @Value(&quot;${project.auth.port}&quot;)
+    private transient String port;
+
+    /**
+     * The controller that controller the user information from the endpoints.
+     *
+     * @param userService              the user service to use
+     * @param httpCommunicationService the http communication service to use
+     * @param loggedInUserService      the logged in user service to use
+     */
+    public UserController(UserService userService,
+                          HttpCommunicationService httpCommunicationService,
+<span class="fc" id="L49">                          LoggedInUserService loggedInUserService) {</span>
+<span class="fc" id="L50">        this.userService = userService;</span>
+<span class="fc" id="L51">        this.httpCommunicationService = httpCommunicationService;</span>
+<span class="fc" id="L52">        this.loggedInUserService = loggedInUserService;</span>
+<span class="fc" id="L53">    }</span>
+
+    /**
+     * Login to the application. This request will reach the auth microservice.
+     *
+     * @param jsonBody The body of the request, being user login details
+     * @return The JWT received form the auth microservice
+     */
+    @PostMapping(&quot;login&quot;)
+    @ResponseBody
+    public String loginUser(@RequestBody String jsonBody) {
+<span class="fc" id="L64">        HttpResponse&lt;String&gt; response = httpCommunicationService</span>
+<span class="fc" id="L65">                .postUtility(&quot;auth/login&quot;, port, null, jsonBody);</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (response.statusCode() != HttpStatus.OK.value()) {</span>
+<span class="fc" id="L67">            throw new ResponseStatusException(</span>
+<span class="fc" id="L68">                    HttpStatus.valueOf(response.statusCode()), &quot;Invalid Credentials&quot;);</span>
+        }
+        // Get username
+<span class="fc" id="L71">        JsonObject udetails = new Gson().fromJson(jsonBody, JsonObject.class);</span>
+<span class="fc" id="L72">        String username = udetails.get(&quot;username&quot;).getAsString();</span>
+        // Add user to the database if the username is non-null
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if (username != null) {</span>
+<span class="fc" id="L75">            userService.addUserIfNotInDatabase(username);</span>
+        }
+<span class="fc" id="L77">        return response.body();</span>
+    }
+
+    /**
+     * Gets an iterable list of all flagged users.
+     *
+     * @return Iterable of userEntity with (&lt;50) credits
+     */
+    @GetMapping(&quot;flagged&quot;)
+    @ResponseBody
+    public Iterable&lt;UserEntity&gt; getFlaggedUsers() {
+<span class="fc" id="L88">        return userService.findFlaggedUsers();</span>
+    }
+
+    /**
+     * Resets credit count for all user entities in the database.
+     */
+    @PostMapping(&quot;reset&quot;)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void resetUserCredits() {
+<span class="fc" id="L97">        userService.setAllCreditsToZero();</span>
+<span class="fc" id="L98">    }</span>
+
+    /**
+     * Gets all users with their credits from the database.
+     *
+     * @return Iterable of all users in the database
+     */
+    @GetMapping(&quot;users&quot;)
+    @ResponseBody
+    public Iterable&lt;UserEntity&gt; getAllUsers() {
+<span class="fc" id="L108">        return userService.findAll();</span>
+    }
+
+    /**
+     * Get the credit status of the currently logged in user.
+     *
+     * @return the amount of credits the logged in user has.
+     */
+    @GetMapping(&quot;credits/me&quot;)
+    @ResponseBody
+    public float myUsername() {
+<span class="fc" id="L119">        Optional&lt;UserEntity&gt; user = loggedInUserService.getUser();</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">        if (user.isPresent()) {</span>
+<span class="fc" id="L121">            return user.get().getCredits();</span>
+
+        } else {
+<span class="fc" id="L124">            throw new ResponseStatusException(</span>
+                    HttpStatus.BAD_REQUEST, &quot;User not found&quot;);
+        }
+    }
+
+    /**
+     * Get the flagged status of the currently logged in user.
+     *
+     * @return the flagged status of the logged in user.
+     */
+    @GetMapping(&quot;flagged/me&quot;)
+    @ResponseBody
+    public boolean myFlagged() {
+<span class="fc" id="L137">        Optional&lt;UserEntity&gt; user = loggedInUserService.getUser();</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        if (user.isPresent()) {</span>
+<span class="fc" id="L139">            return user.get().getFlagged();</span>
+
+        } else {
+<span class="fc" id="L142">            throw new ResponseStatusException(</span>
+                    HttpStatus.BAD_REQUEST, &quot;User not found&quot;);
+        }
+    }
+
+    /**
+     * Deletes the user using the JWT token given.
+     *
+     * @param token the JWT token of the user
+     */
+    @DeleteMapping(&quot;user/me&quot;)
+    @ResponseBody
+    @ResponseStatus(value = HttpStatus.OK)
+    public void deleteUser(@RequestHeader(name = &quot;Authorization&quot;) String token) {
+
+<span class="fc bfc" id="L157" title="All 4 branches covered.">        if (token != null &amp;&amp; token.startsWith(&quot;Bearer &quot;)) {</span>
+<span class="fc" id="L158">            token = token.replace(&quot;Bearer &quot;, &quot;&quot;);</span>
+        }
+
+<span class="fc" id="L161">        HttpResponse&lt;String&gt; response = httpCommunicationService</span>
+<span class="fc" id="L162">                .deleteUtility(&quot;auth/user/me&quot;, port, token);</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">        if (response.statusCode() != HttpStatus.OK.value()) {</span>
+<span class="fc" id="L164">            throw new ResponseStatusException(</span>
+<span class="fc" id="L165">                    HttpStatus.valueOf(response.statusCode()), &quot;Invalid JWT Token&quot;);</span>
+        }
+
+<span class="fc" id="L168">        Optional&lt;UserEntity&gt; user = loggedInUserService.getUser();</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">        if (user.isPresent()) {</span>
+<span class="fc" id="L170">            userService.deleteUser(user.get());</span>
+        } else {
+<span class="fc" id="L172">            throw new ResponseStatusException(</span>
+                    HttpStatus.BAD_REQUEST, &quot;User not found&quot;);
+        }
+
+<span class="fc" id="L176">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

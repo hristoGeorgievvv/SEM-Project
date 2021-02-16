@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductEntity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mainService</a> &gt; <a href="index.source.html" class="el_package">nl.tudelft.sem.sem54.mainservice.entities</a> &gt; <span class="el_source">ProductEntity.java</span></div><h1>ProductEntity.java</h1><pre class="source lang-java linenums">package nl.tudelft.sem.sem54.mainservice.entities;
+
+import java.util.Objects;
+
+/**
+ * Product class, keeping track of portions and credits.
+ */
+public class ProductEntity {
+
+    private int portions;
+    private int credits;
+    private UserEntity owner;
+
+    /**
+     * Constructor, taking the amount of portions and credits of a product.
+     *
+     * @param portions The amount of portions
+     * @param credits  The amount of credits
+     * @param owner    The owner of the food item
+     */
+<span class="fc" id="L21">    public ProductEntity(int portions, int credits, UserEntity owner) {</span>
+<span class="fc" id="L22">        this.portions = portions;</span>
+<span class="fc" id="L23">        this.credits = credits;</span>
+<span class="fc" id="L24">        this.owner = owner;</span>
+<span class="fc" id="L25">    }</span>
+
+    /**
+     * Gets the amount of portions in a product.
+     *
+     * @return The amount of portions in a product
+     */
+    public int getPortions() {
+<span class="fc" id="L33">        return portions;</span>
+    }
+
+    /**
+     * Gets the amount of credits a product is worth.
+     *
+     * @return The amount of credits the product is worth
+     */
+    public int getCredits() {
+<span class="fc" id="L42">        return credits;</span>
+    }
+
+    /**
+     * Set the amount of portions of the product.
+     *
+     * @param portions The new amount of portions
+     */
+    public void setPortions(int portions) {
+<span class="fc" id="L51">        this.portions = portions;</span>
+<span class="fc" id="L52">    }</span>
+
+    /**
+     * Set the amount of credits.
+     *
+     * @param credits The new amount of credits
+     */
+    public void setCredits(int credits) {
+<span class="fc" id="L60">        this.credits = credits;</span>
+<span class="fc" id="L61">    }</span>
+
+    /**
+     * Gets the user entity that owns the product.
+     *
+     * @return The owner
+     */
+    public UserEntity getOwner() {
+<span class="fc" id="L69">        return owner;</span>
+    }
+
+    /**
+     * Set the owner of the product.
+     *
+     * @param owner the owner
+     */
+    public void setOwner(UserEntity owner) {
+<span class="fc" id="L78">        this.owner = owner;</span>
+<span class="fc" id="L79">    }</span>
+
+    /**
+     * Gets the amount of credits per portion of a product.
+     *
+     * @return The amount of credits per portion
+     */
+    public float getCreditsPerPortion() {
+<span class="fc" id="L87">        return (float) this.getCredits() / (float) this.getPortions();</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (this == o) {</span>
+<span class="fc" id="L93">            return true;</span>
+        }
+<span class="fc bfc" id="L95" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L96">            return false;</span>
+        }
+<span class="fc" id="L98">        ProductEntity that = (ProductEntity) o;</span>
+<span class="fc bfc" id="L99" title="All 4 branches covered.">        return portions == that.portions</span>
+            &amp;&amp; credits == that.credits
+<span class="fc bfc" id="L101" title="All 2 branches covered.">            &amp;&amp; Objects.equals(owner, that.owner);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L106">        return Objects.hash(portions, credits, owner);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
